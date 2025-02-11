@@ -16,6 +16,7 @@ export default function CatFacts() {
         }
         const result = await response.json();
         setData(result);
+        console.log(result);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -24,14 +25,16 @@ export default function CatFacts() {
     };
     fetchData();
   }, []);
+
+  
   return (
     <div>
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: "red" }}>Error: {error}</p>}
       {data && (
         <div>
-          <h2>{data.title} </h2>
-          <p> {data.body} </p>
+          <p>Cat Facts:{data.data[0].fact} </p>
+
         </div>
       )}
     </div>
