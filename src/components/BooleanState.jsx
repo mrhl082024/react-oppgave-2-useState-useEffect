@@ -5,7 +5,11 @@ const BooleanState = () => {
 
   return (
     <>
-      <button>{bool ? "true" : "false"} </button>
+      <button onClick={() => setBool(!bool)}>
+        {" "}
+        {bool ? "true" : "false"}{" "}
+      </button>
+      {bool && <img src="test" alt="boo"></img>}
     </>
   );
 };
