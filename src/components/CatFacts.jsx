@@ -24,4 +24,16 @@ export default function CatFacts() {
     };
     fetchData();
   }, []);
+  return (
+    <div>
+      {loading && <p>Loading...</p>}
+      {error && <p style={{ color: "red" }}>Error: {error}</p>}
+      {data && (
+        <div>
+          <h2>{data.title} </h2>
+          <p> {data.body} </p>
+        </div>
+      )}
+    </div>
+  );
 }
