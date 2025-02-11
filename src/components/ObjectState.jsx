@@ -7,19 +7,22 @@ const ObjectState = () => {
     year: 2020,
   });
 
+  const authorChange = () => {};
+  const titleChange = () => {};
+  const yearChange = () => {};
+
   return (
     <>
-    <div>
-      <p>{book.author}</p>
-      <p>{book.title} </p>
-      <p>{book.year} </p>
-        
-    </div>
-    <div>
+      <div>
+        <p>{book.author}</p>
+        <p>{book.title} </p>
+        <p>{book.year} </p>
+      </div>
+      <div>
         <input type="text" id="author" value={book.author} />
         <input type="text" id="title" value={book.title} />
         <input type="number" id="year" value={book.year} />
-    </div>
+      </div>
     </>
   );
 };
