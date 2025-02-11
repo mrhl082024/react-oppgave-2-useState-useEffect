@@ -7,9 +7,15 @@ const ObjectState = () => {
     year: 2020,
   });
 
-  const authorChange = () => {};
-  const titleChange = () => {};
-  const yearChange = () => {};
+  const authorChange = (e) => {
+    setBook((b) => ({ ...b, author: e.target.value }));
+  };
+  const titleChange = (e) => {
+    setBook((b) => ({ ...b, title: e.target.value }));
+  };
+  const yearChange = (e) => {
+    setBook((b) => ({ ...b, year: e.target.value }));
+  };
 
   return (
     <>
@@ -19,9 +25,24 @@ const ObjectState = () => {
         <p>{book.year} </p>
       </div>
       <div>
-        <input type="text" id="author" value={book.author} />
-        <input type="text" id="title" value={book.title} />
-        <input type="number" id="year" value={book.year} />
+        <input
+          type="text"
+          id="author"
+          value={book.author}
+          onChange={authorChange}
+        />
+        <input
+          type="text"
+          id="title"
+          value={book.title}
+          onChange={titleChange}
+        />
+        <input
+          type="number"
+          id="year"
+          value={book.year}
+          onChange={yearChange}
+        />
       </div>
     </>
   );
