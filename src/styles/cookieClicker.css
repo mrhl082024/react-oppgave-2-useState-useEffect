@@ -1,10 +1,10 @@
 #cookieCard {
-  display: grid;
+display: grid;
 }
 
 #cookieBtn {
-  width: 300px;
-  height: 300px;
+  max-width: 300px;
+  max-height: 300px;
 }
 
 #cookieImg {

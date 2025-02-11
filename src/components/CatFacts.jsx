@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "../styles/catFacts.css"
 
 export default function CatFacts() {
   const [data, setData] = useState(null);
@@ -28,7 +29,7 @@ export default function CatFacts() {
 
   
   return (
-    <div>
+    <div id="cat-card" >
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: "red" }}>Error: {error}</p>}
       {data && (
