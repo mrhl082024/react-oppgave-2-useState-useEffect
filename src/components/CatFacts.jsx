@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "../styles/catFacts.css";
 
 export default function CatFacts() {
   const [data, setData] = useState(null);
@@ -26,16 +27,20 @@ export default function CatFacts() {
     fetchData();
   }, []);
 
-  
+  function appendFacts() {
+    for (let i = 0; i < data.data.length; i++) {
+      
+    }
+  }
+
   return (
-    <div id="cat-card" >
+    <div id="cat-card">
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: "red" }}>Error: {error}</p>}
       {data && (
-        <div>
-          <p>Cat Facts:{data.data[0].fact} </p>
-
-        </div>
+        <button id="fact-btn" onClick={appendFacts}>
+          Cat Facts!
+        </button>
       )}
     </div>
   );

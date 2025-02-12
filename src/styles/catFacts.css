@@ -1,0 +1,12 @@
+#cat-card {
+  display: flex;
+  justify-content: center;
+}
+
+#fact-btn {
+  width: 300px;
+  height: 40px;
+  border-radius: 1rem;
+  border: 1px solid rgb(150, 0, 0);
+  cursor: pointer;
+}
