@@ -30,6 +30,7 @@ export default function CatFacts() {
     const createFacts = document.querySelector("#create-facts")
     for (let i = 0; i < data.data.length; i++) {
       const fact = document.createElement("li");
+      fact.className = "li-facts"
       fact.textContent = data.data[i].fact;
       createFacts.appendChild(fact)
     }
