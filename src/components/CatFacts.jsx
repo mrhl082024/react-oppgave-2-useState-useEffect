@@ -17,7 +17,6 @@ export default function CatFacts() {
         }
         const result = await response.json();
         setData(result);
-        console.log(result);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -28,8 +27,11 @@ export default function CatFacts() {
   }, []);
 
   function appendFacts() {
+    const createFacts = document.querySelector("#create-facts")
     for (let i = 0; i < data.data.length; i++) {
-      
+      const fact = document.createElement("li");
+      fact.textContent = data.data[i].fact;
+      createFacts.appendChild(fact)
     }
   }
 
@@ -38,9 +40,12 @@ export default function CatFacts() {
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: "red" }}>Error: {error}</p>}
       {data && (
-        <button id="fact-btn" onClick={appendFacts}>
-          Cat Facts!
-        </button>
+        <>
+          <button id="fact-btn" onClick={appendFacts}>
+            Cat Facts!
+          </button>
+          <ul id="create-facts"></ul>
+        </>
       )}
     </div>
   );
