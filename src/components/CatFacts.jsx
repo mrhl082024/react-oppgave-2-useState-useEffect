@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "../styles/catFacts.css"
 
 export default function CatFacts() {
   const [data, setData] = useState(null);

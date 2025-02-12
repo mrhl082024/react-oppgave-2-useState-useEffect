@@ -1,6 +1,6 @@
 import { useState } from "react";
 import cookie from "../assets/cookie.png";
-import "../styles/cookieClicker.css";
+import "../styles/cookieClicker.css"
 
 export default function cookieClicker() {
   const [count, setCount] = useState(0);
@@ -11,12 +11,12 @@ export default function cookieClicker() {
     setCount((prev) => (prev = 0));
   }
   return (
-    <div id="cookieCard">
-      <p>{count} Cookies!</p>
-      <button id="cookieBtn" onClick={handleIncrement}>
-        <img id="cookieImg" src={cookie} alt="cookie" />
+    <div id="cookie-card">
+      <p id="cookie-text">{count} Cookies!</p>
+      <button id="cookie-btn" onClick={handleIncrement}>
+        <img id="cookie-img" src={cookie} alt="cookie" />
       </button>
-      <button id="resetBtn" onClick={resetIncrement}>
+      <button id="reset-btn" onClick={resetIncrement}>
         Reset Counter
       </button>
     </div>
