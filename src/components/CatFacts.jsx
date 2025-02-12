@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "../styles/catFacts.css";
 
 export default function CatFacts() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -16,7 +16,9 @@ export default function CatFacts() {
           throw new Error(`HTTP Error. Status ${response.status}`);
         }
         const result = await response.json();
-        setData(result);
+
+        setData(result.data);
+        // setData(result);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -26,28 +28,25 @@ export default function CatFacts() {
     fetchData();
   }, []);
 
-  function appendFacts() {
-    const createFacts = document.querySelector("#create-facts")
-    for (let i = 0; i < data.data.length; i++) {
-      const fact = document.createElement("li");
-      fact.className = "li-facts"
-      fact.textContent = data.data[i].fact;
-      createFacts.appendChild(fact)
-    }
-  }
+  // function appendFacts() {
+  //   const createFacts = document.querySelector("#create-facts")
+  //   for (let i = 0; i < data.data.length; i++) {
+  //     const fact = document.createElement("li");
+  //     fact.className = "li-facts"
+  //     fact.textContent = data.data[i].fact;
+  //     createFacts.appendChild(fact)
+  //   }
+  // }
+
 
   return (
     <div id="cat-card">
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: "red" }}>Error: {error}</p>}
-      {data && (
-        <>
-          <button id="fact-btn" onClick={appendFacts}>
-            Cat Facts!
-          </button>
-          <ul id="create-facts"></ul>
-        </>
-      )}
+      {data.map((obj, index) => (
+        <p id="facts" key={index}>{obj.fact}</p>
+      ))}
+
     </div>
   );
 }
