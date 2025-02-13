@@ -22,7 +22,7 @@ const UserComponent = () => {
     <div id="user-card">
       <input id="name-field" type="text" placeholder="Your Name" />
       <input id="email-field" type="text" placeholder="Email Address" />
-      <button onClick={handleField}>Add User</button>
+      <button id="add-user" onClick={handleField}>Add User</button>
       {array.map((obj, index) => (
         <div>
           <p key={index}>
